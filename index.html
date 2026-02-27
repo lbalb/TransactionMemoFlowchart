@@ -31,6 +31,13 @@
     --stage-ask: #56c4e8;
     --stage-risk: #e8a04a;
     --stage-prepost: #6b7a96;
+    /* Blocker colors */
+    --blocker-green: #1a3a1a;
+    --blocker-green-stroke: #3ecf5a;
+    --blocker-yellow: #3a3518;
+    --blocker-yellow-stroke: #e8c84a;
+    --blocker-red: #3a1a1a;
+    --blocker-red-stroke: #e05050;
     --glass: rgba(24, 28, 38, 0.85);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
   }
@@ -122,6 +129,27 @@
   .source-doc-btn:hover .arrow-icon {
     opacity: 1;
   }
+
+
+  /* BLOCKER LEGEND */
+  .blocker-legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .legend-dot.green { background: var(--blocker-green-stroke); }
+  .legend-dot.yellow { background: var(--blocker-yellow-stroke); }
+  .legend-dot.red { background: var(--blocker-red-stroke); }
+  .header-actions { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
 
   /* NAV */
   .nav-bar {
@@ -518,16 +546,38 @@ const sections = [
     S5 -->|"Gate 3: Cap Table Recon"| S6
     S6 -->|"Gate 4: Appendix Check"| S7
     S7 -->|"Gate 5: Sign-Off"| POST
-
-    style PRE fill:#1a2235,stroke:#6b7a96,color:#e8ecf4
-    style S1 fill:#162040,stroke:#4a8eff,color:#e8ecf4
-    style S2 fill:#142a2a,stroke:#3ecfb4,color:#e8ecf4
-    style S3 fill:#2a2010,stroke:#f0a050,color:#e8ecf4
-    style S4 fill:#2a1525,stroke:#e05882,color:#e8ecf4
-    style S5 fill:#1e1535,stroke:#8b6cf0,color:#e8ecf4
-    style S6 fill:#122a30,stroke:#56c4e8,color:#e8ecf4
-    style S7 fill:#2a2010,stroke:#e8a04a,color:#e8ecf4
-    style POST fill:#1a2235,stroke:#6b7a96,color:#e8ecf4`
+    style TI fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style PB fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style VG fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style ES fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style CO fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style MO fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style PS fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style BM fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style TR fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style CL fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style GTM fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style TL fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style BA fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style HF fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style FP fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style CR fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style RA fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style VS fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style RK fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style MS fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style AP fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style DA fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style PC fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style PRE fill:#12151c,stroke:#6b7a96,color:#e8ecf4
+    style S1 fill:#12151c,stroke:#4a8eff,color:#e8ecf4
+    style S2 fill:#12151c,stroke:#3ecfb4,color:#e8ecf4
+    style S3 fill:#12151c,stroke:#f0a050,color:#e8ecf4
+    style S4 fill:#12151c,stroke:#e05882,color:#e8ecf4
+    style S5 fill:#12151c,stroke:#8b6cf0,color:#e8ecf4
+    style S6 fill:#12151c,stroke:#56c4e8,color:#e8ecf4
+    style S7 fill:#12151c,stroke:#e8a04a,color:#e8ecf4
+    style POST fill:#12151c,stroke:#6b7a96,color:#e8ecf4`
   },
   {
     id: 'pre-intake',
@@ -556,10 +606,26 @@ const sections = [
     D1 & D2 & D3 & D4 & D5 --> E{"All Scoping\\nResolved?"}
     E -->|No| D
     E -->|Yes| F["Proceed to\\nPage Budget"]
-
-    style A fill:#2a3550,stroke:#6b7a96,color:#e8ecf4
-    style F fill:#1a3040,stroke:#4a8eff,color:#e8ecf4
-    style E fill:#2a2a10,stroke:#f0a050,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C5 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D5 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 'pre-pagebudget',
@@ -582,10 +648,20 @@ const sections = [
     F --> G
     G --> H["Stage-Adjust:\\nEarly = Lower End\\nPre-IPO = Upper Bound"]
     H --> I["Total Package:\\n50-60 Pages"]
-
-    style A fill:#2a3550,stroke:#6b7a96,color:#e8ecf4
-    style E fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#4a8eff,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D5 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 'pre-gates',
@@ -635,13 +711,33 @@ const sections = [
     end
 
     G5 --> Z["Cleared for\\nDistribution"]
-
-    style G1 fill:#162040,stroke:#4a8eff,color:#e8ecf4
-    style G2 fill:#142a2a,stroke:#3ecfb4,color:#e8ecf4
-    style G3 fill:#2a2010,stroke:#f0a050,color:#e8ecf4
-    style G4 fill:#2a1525,stroke:#e05882,color:#e8ecf4
-    style G5 fill:#1e1535,stroke:#8b6cf0,color:#e8ecf4
-    style Z fill:#1a3040,stroke:#4a8eff,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G1a fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G1b fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G1c fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G1d fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G2a fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G2b fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G2c fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G2d fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G3a fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G3b fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G3c fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G3d fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G4a fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G4b fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G4c fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G4d fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G5a fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G5b fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G5c fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G5d fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style Z fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G1 fill:#12151c,stroke:#4a8eff,color:#e8ecf4
+    style G2 fill:#12151c,stroke:#3ecfb4,color:#e8ecf4
+    style G3 fill:#12151c,stroke:#f0a050,color:#e8ecf4
+    style G4 fill:#12151c,stroke:#e05882,color:#e8ecf4
+    style G5 fill:#12151c,stroke:#8b6cf0,color:#e8ecf4`
   },
   {
     id: 's1',
@@ -670,10 +766,26 @@ const sections = [
     H -->|No| I["Trim & move\\ndetail to appendix"]
     H -->|Yes| J["Section Complete\\n— Write Last!"]
     I --> H
-
-    style A fill:#162040,stroke:#4a8eff,color:#e8ecf4
-    style J fill:#1a3040,stroke:#4a8eff,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D4 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FA fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FB fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FC fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style J fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's2',
@@ -700,10 +812,24 @@ const sections = [
     G -->|Mismatch| H["Resolve with\\nLegal Owner"]
     G -->|Match| I["Section Complete"]
     H --> G
-
-    style A fill:#162040,stroke:#4a8eff,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#4a8eff,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style H fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's3',
@@ -728,11 +854,21 @@ const sections = [
     K -->|No| L["Adjust SOM or\\nRevise Model"]
     K -->|Yes| M["Section Complete"]
     L --> K
-
-    style A fill:#142a2a,stroke:#3ecfb4,color:#e8ecf4
-    style C fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style K fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style M fill:#1a3040,stroke:#3ecfb4,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style J fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style K fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style L fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style M fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's4',
@@ -758,10 +894,24 @@ const sections = [
     F -->|Series B| FB["Case studies\\nwith ROI data"]
     F -->|Pre-IPO| FC["Enterprise readiness\\n& cohort analysis"]
     FA & FB & FC --> G["Section Complete"]
-
-    style A fill:#142a2a,stroke:#3ecfb4,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style G fill:#1a3040,stroke:#3ecfb4,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FA fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style FB fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style FC fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's5',
@@ -787,10 +937,23 @@ const sections = [
     G -->|No| H["Reconcile\\nwith Model"]
     G -->|Yes| I["Section Complete"]
     H --> G
-
-    style A fill:#142a2a,stroke:#3ecfb4,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#3ecfb4,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C5 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's6',
@@ -820,11 +983,26 @@ const sections = [
     H -->|No| I["Add to Model or\\nRemove from Memo"]
     H -->|Yes| J["Section Complete"]
     I --> H
-
-    style A fill:#2a2010,stroke:#f0a050,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style H fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style J fill:#1a3040,stroke:#f0a050,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style J fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's7',
@@ -851,10 +1029,24 @@ const sections = [
     H -->|No| I["Strengthen Claims\\nor Adjust Position"]
     H -->|Yes| J["Section Complete"]
     I --> H
-
-    style A fill:#2a2010,stroke:#f0a050,color:#e8ecf4
-    style H fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style J fill:#1a3040,stroke:#f0a050,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E5 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style I fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style J fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's8',
@@ -885,10 +1077,28 @@ const sections = [
     G -->|No| H["Align Model\\nAssumptions"]
     G -->|Yes| I["Section Complete"]
     H --> G
-
-    style A fill:#2a2010,stroke:#f0a050,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#f0a050,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's9',
@@ -913,10 +1123,22 @@ const sections = [
     G -->|No| H["Reconcile"]
     G -->|Yes| I["Section Complete"]
     H --> G
-
-    style A fill:#2a1525,stroke:#e05882,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#e05882,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's10',
@@ -939,10 +1161,21 @@ const sections = [
     F -->|Series B| FB["Formal governance\\n+ investor reps"]
     F -->|Pre-IPO| FC["Independent dirs,\\naudit committee, D&O"]
     FA & FB & FC --> G["Section Complete"]
-
-    style A fill:#2a1525,stroke:#e05882,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style G fill:#1a3040,stroke:#e05882,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FA fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FB fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style FC fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's11',
@@ -967,11 +1200,21 @@ const sections = [
     I -->|No| J["Fix Cross-Section\\nDiscrepancies"]
     I -->|Yes| K["Section Complete"]
     J --> I
-
-    style A fill:#1e1535,stroke:#8b6cf0,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style K fill:#1a3040,stroke:#8b6cf0,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B4 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style J fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style K fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's12',
@@ -1001,10 +1244,27 @@ const sections = [
     F -->|No| G["Map to Model"]
     F -->|Yes| H["Section Complete"]
     G --> F
-
-    style A fill:#1e1535,stroke:#8b6cf0,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style H fill:#1a3040,stroke:#8b6cf0,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B5 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's13',
@@ -1029,10 +1289,22 @@ const sections = [
     I -->|No| J["Reconcile with\\nModel & Bank Stmts"]
     I -->|Yes| K["Section Complete"]
     J --> I
-
-    style A fill:#1e1535,stroke:#8b6cf0,color:#e8ecf4
-    style I fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style K fill:#1a3040,stroke:#8b6cf0,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style J fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style K fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's14',
@@ -1062,10 +1334,27 @@ const sections = [
     G -->|No| H["Align Across\\nSections"]
     G -->|Yes| I["Section Complete"]
     H --> G
-
-    style A fill:#122a30,stroke:#56c4e8,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#56c4e8,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F5 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F6 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's15',
@@ -1095,11 +1384,26 @@ const sections = [
     J -->|No| K["Reconcile"]
     J -->|Yes| L["Section Complete"]
     K --> J
-
-    style A fill:#122a30,stroke:#56c4e8,color:#e8ecf4
-    style D fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style J fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style L fill:#1a3040,stroke:#56c4e8,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style D fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style I2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style I4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style J fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style K fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style L fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's16',
@@ -1129,10 +1433,27 @@ const sections = [
     G -->|No| H["Strengthen with\\nSpecific Initiatives"]
     G -->|Yes| I["Section Complete"]
     H --> G
-
-    style A fill:#2a2010,stroke:#e8a04a,color:#e8ecf4
-    style G fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style I fill:#1a3040,stroke:#e8a04a,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E2 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style E3 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style I fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's17',
@@ -1155,10 +1476,20 @@ const sections = [
     F -->|No| G["Link Capital →\\nMilestone → Timeline"]
     F -->|Yes| H["Section Complete"]
     G --> F
-
-    style A fill:#2a2010,stroke:#e8a04a,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style H fill:#1a3040,stroke:#e8a04a,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's18',
@@ -1185,10 +1516,24 @@ const sections = [
     F1 & F2 & F3 & F4 --> G["Build Data Room\\nIndex (Appendix Z)"]
     G --> G1["Title, Version,\\nDate, Owner"]
     G1 --> H["Section Complete"]
-
-    style A fill:#2a2010,stroke:#e8a04a,color:#e8ecf4
-    style D fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style H fill:#1a3040,stroke:#e8a04a,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style H fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4`
   },
   {
     id: 's19',
@@ -1225,9 +1570,35 @@ const sections = [
     H --> H4["Board Chair ✓"]
     H --> H5["Memo Owner ✓"]
     H1 & H2 & H3 & H4 & H5 --> I["Memo Approved\\nfor Distribution"]
-
-    style A fill:#1a2235,stroke:#6b7a96,color:#e8ecf4
-    style I fill:#1a3040,stroke:#4a8eff,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style B3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style C3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style E fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style F3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style G3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H4 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style H5 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style I fill:#3a1a1a,stroke:#e05050,color:#e8ecf4`
   },
   {
     id: 'checklist',
@@ -1261,10 +1632,31 @@ const sections = [
     F -->|No| G["Resolve Failures\\n& Re-Check"]
     F -->|Yes| H["CLEARED FOR\\nDISTRIBUTION"]
     G --> F
-
-    style A fill:#1a2235,stroke:#6b7a96,color:#e8ecf4
-    style F fill:#2a2a10,stroke:#f0a050,color:#e8ecf4
-    style H fill:#0d3020,stroke:#3ecfb4,color:#e8ecf4`
+    style A fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style B5 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C1 fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style C2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style C3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style D1 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D2 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D3 fill:#3a1a1a,stroke:#e05050,color:#e8ecf4
+    style D4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E1 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E2 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E3 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E4 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style E5 fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style F fill:#1a3a1a,stroke:#3ecf5a,color:#e8ecf4
+    style G fill:#3a3518,stroke:#e8c84a,color:#e8ecf4
+    style H fill:#3a1a1a,stroke:#e05050,color:#e8ecf4`
   }
 ];
 
@@ -1306,11 +1698,18 @@ function renderApp() {
       <div class="header-label">IC Production Blueprint v2.0</div>
       <h1>Flowchart Navigator</h1>
       <p>Interactive production flowcharts for every section of the company-side fundraising memo — from transaction intake through final sign-off.</p>
+      <div class="header-actions">
       <a class="source-doc-btn" href="https://drive.google.com/file/d/1d-_5pYsk49epX3w1BgY7jJfhD5_Bpvq1/view?usp=sharing" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         Source Document — IC Blueprint v2.0
         <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
+        <div class="blocker-legend">
+          <div class="legend-item"><span class="legend-dot green"></span> No Blocker — LLM can do</div>
+          <div class="legend-item"><span class="legend-dot yellow"></span> Soft Blocker — needs pre-fetch</div>
+          <div class="legend-item"><span class="legend-dot red"></span> Hard Blocker — human-only</div>
+        </div>
+      </div>
     </div>
     <div class="nav-bar">
       <div class="nav-inner">
